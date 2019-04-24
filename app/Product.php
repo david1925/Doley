@@ -4,7 +4,7 @@ namespace Doley;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Exception extends Model
+class Product extends Model
 {
-    protected $table = 'exception';
+    protected $table = 'product';
 }
