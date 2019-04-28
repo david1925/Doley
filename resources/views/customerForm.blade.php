@@ -1,3 +1,5 @@
+@extends('main')
+@section('form')
 <div class="container">
        <table class="table table-striped">
           <tbody>
@@ -136,3 +138,4 @@
           </tbody>
        </table>
     </div>
+    @endsection

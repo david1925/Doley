@@ -25,19 +25,22 @@ Route::get('/', function () {
 });
 
 Route::get('/appoinment', function(){
-    $appoinment = Appoinment::first();    
-    dd($appoinment);        
-});
+    // $appoinment = Appoinment::first();
+    // dd($appoinment);
+    return view('appoinmentForm');
+})->name('appoinmentForm');
 
 Route::get('/customer', function(){
-    $customer = Customer::first();    
-    dd($customer);        
-});
+    // $customer = Customer::first();
+    // dd($customer);
+    return view('customerForm');
+})->name('customerForm');
 
 Route::get('/product', function(){
-    $product = Product::first();    
-    dd($product);        
-});
+    // $product = Product::first();    
+    // dd($product);
+    return view('productForm');      
+})->name('productForm');
 
 Route::get('/exception', function(){
     $exception = Exception::first();    
