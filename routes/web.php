@@ -16,10 +16,6 @@ use Doley\Product;
 use Doley\Exception;
 use Doley\Appoinment;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
     return view('main');
 });
