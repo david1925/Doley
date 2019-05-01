@@ -1,7 +1,7 @@
 @extends('main')
 @section('form')
 <div class="container">
-   <h1>Nombre apellidos</h1>
+   <h1>{{ $customer->name }} {{ $customer->lastname }} {{ $customer->phone }}</h1>
        <table class="table table-striped">
           <tbody>
              <tr>

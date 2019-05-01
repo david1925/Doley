@@ -1,0 +1,11 @@
+INSERT INTO user_group (name) VALUES ('Administrador');
+INSERT INTO user (name,email,password,group_id) VALUES ('Raquel','raqueldoley@gmail.com',md5('raquel'),1);
+INSERT INTO service (name,duration,price) VALUES ('color',15,20);
+INSERT INTO service (name,duration,price) VALUES ('Lavar y secar',20,'14.2');
+INSERT INTO customer (name,lastname,phone,email,gender,postal_code,right_image,birthdate,observations) VALUES ('David','García',679614436,'david.gargom.94@gmail.com','H',08901,1,25/06/1994,'Ninguna observación');
+INSERT INTO customer (name,lastname,phone,gender,observations) VALUES ('Celia','Palamos Pujol',606420868,'M','Bar');
+INSERT INTO customer (name,lastname,phone,gender) VALUES ('Maria','Castro',111111111,'M');
+INSERT INTO appoinment (day,customer_id,user_id,services_id) VALUES("2019/03/05",2,1,1);
+INSERT INTO appoinment (day,customer_id,user_id,services_id) VALUES("2019/03/05",3,1,2);
+INSERT INTO customer_service (customer_id,service_id) VALUES (2,1);
+INSERT INTO customer_service (customer_id,service_id) VALUES (3,2);

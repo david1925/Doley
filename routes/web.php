@@ -27,9 +27,9 @@ Route::get('/appoinment', function(){
 })->name('appoinmentForm');
 
 Route::get('/customer', function(){
-    // $customer = Customer::first();
+     $customer = Customer::first();
     // dd($customer);
-    return view('customerForm');
+    return view('customerForm', ['customer'=>$customer]);
 })->name('customerForm');
 
 Route::get('/product', function(){
