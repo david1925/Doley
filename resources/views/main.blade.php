@@ -32,8 +32,10 @@
   </div>
 </nav>
 @yield('customer')
+@yield('customerDetail')
 @yield('appoinmentForm')
 @yield('productForm')
+
 
 </body>
 

@@ -4,6 +4,7 @@ namespace Doley\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Doley\Customer;
 class CustomerController extends Controller
 {
     public function getMainCustomers(){
@@ -14,5 +15,10 @@ class CustomerController extends Controller
         ->orderBy('appoinment.day','desc')
         ->get();
         return $customers;
+    }
+
+    public function getCustomerDetails($customerId){
+        $customer = Customer::where('id',$customerId);
+        return $customer;
     }
 }
