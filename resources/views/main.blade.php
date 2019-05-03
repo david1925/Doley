@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('customerForm') }}">Clientes</a>
+          <a class="nav-link" href="{{ route('customer') }}">Clientes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('appoinmentForm') }}">Citas</a>
@@ -31,7 +31,7 @@
     </div>
   </div>
 </nav>
-@yield('form')
+@yield('customer')
 @yield('appoinmentForm')
 @yield('productForm')
 

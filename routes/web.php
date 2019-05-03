@@ -11,14 +11,11 @@
 |
 */
 
-use Doley\Customer;
 use Doley\Product;
 use Doley\Exception;
 use Doley\Appoinment;
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', 'PagesController@index');
 
 Route::get('/appoinment', function(){
     // $appoinment = Appoinment::first();
@@ -26,11 +23,7 @@ Route::get('/appoinment', function(){
     return view('appoinmentForm');
 })->name('appoinmentForm');
 
-Route::get('/customer', function(){
-     $customer = Customer::first();
-    // dd($customer);
-    return view('customerForm', ['customer'=>$customer]);
-})->name('customerForm');
+Route::get('/customer/{id?}', 'PagesController@customerMain')->name('customer');
 
 Route::get('/product', function(){
     // $product = Product::first();    
