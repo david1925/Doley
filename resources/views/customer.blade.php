@@ -136,13 +136,5 @@
         </div>
       </form>
     </div>
-
-    <br><br>
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Ficha color</a></li>
-        <li><a href="#">Ficha general</a></li>
-      </ul>
-    </div>
   @endif  
 @endsection
