@@ -19,8 +19,9 @@ class PagesController extends Controller
             $customers = $customerController->getMainCustomers();     
         }else{
             $customers = $customerController->getCustomerDetails($id);
+            $servicesCustomer = $customerController->getCustomerServiceColor($id);
         }
         
-        return view('customer', compact('customers','id'));
+        return view('customer', compact('customers','servicesCustomer','id'));
     }
 }

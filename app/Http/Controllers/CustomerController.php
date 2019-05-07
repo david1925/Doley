@@ -18,7 +18,21 @@ class CustomerController extends Controller
     }
 
     public function getCustomerDetails($customerId){
-        $customer = Customer::where('id',$customerId);
+        $customer = DB::table('customer')
+        ->where('id','=',$customerId)
+        ->select('customer.*')
+        ->first();
+        return $customer;
+    }
+
+    public function getCustomerServiceColor($customerId){
+        $customer = DB::table('service')
+        ->join('appoinment','service.id','=','appoinment.service_id')
+        ->where('appoinment.customer_id','=',$customerId)
+        ->where('service.name','like','%color%')
+        ->select('service.name AS serviceName','service.price AS servicePrice',
+                 'service.duration AS serviceDuration','appoinment.day AS day')
+        ->get();
         return $customer;
     }
 }
