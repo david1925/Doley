@@ -35,4 +35,14 @@ class CustomerController extends Controller
         ->get();
         return $customer;
     }
+
+    public function getCustomerService($customerId){
+        $customer = DB::table('service')
+        ->join('appoinment','service.id','=','appoinment.service_id')
+        ->where('appoinment.customer_id','=',$customerId)
+        ->select('service.name AS serviceName','service.price AS servicePrice',
+                 'service.duration AS serviceDuration','appoinment.day AS day')
+        ->get();
+        return $customer;
+    }
 }

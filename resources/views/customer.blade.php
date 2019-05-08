@@ -111,58 +111,105 @@
               </div>
             </div>
           </div>
-
         </div>
-
-
-
-        <br><br><br>
-        <div class="row">      
-          <div class="col-sm-offset-1 col-sm-10">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#">Ficha color</a></li>
-              <li><a href="#">Ficha general</a></li>
-            </ul>
-          </div>
-        </div>
-
       </form>
+    </div>
+
+    <br><br><br>
+    <div class="container col-sm-12">   
+      <div class="row">      
+        <div class="col-sm-offset-1 col-sm-10">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a data-toggle="tab" href="{{ route('customer', $customers->id) }}">Ficha color</a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#allServices">Ficha general</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
   @endif  
 @endsection
 
 
-@section('service')
+@section('colorServices')
   @if(!empty($id))
 
     <div class="container col-sm-12">  
-    <br><br> 
+      <br><br> 
       <div class="col-sm-offset-2 col-sm-8">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Duración</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Día</th>
-            </tr>
-          </thead>
+        <div class="tab-content">
+          <div id="colorServices" class="tab-pane fade in active">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Duración</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Día</th>
+                </tr>
+              </thead>
 
-          <tbody>
-            @foreach($servicesCustomer as $service)
-                  <tr>
-                    <th scope="row"></th>
-                    <td>{{$service->serviceName}}</td>
-                    <td>{{$service->serviceDuration}}</td>
-                    <td>{{$service->servicePrice}}</td>
-                    <td>{{$service->day}}</td>
-                  </tr>
-            @endforeach
-          </tbody>
-        </table>
+              <tbody>
+                @foreach($servicesCustomer as $service)
+                      <tr>
+                        <th scope="row"></th>
+                        <td>{{$service->serviceName}}</td>
+                        <td>{{$service->serviceDuration}}</td>
+                        <td>{{$service->servicePrice}}</td>
+                        <td>{{$service->day}}</td>
+                      </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
+
+  @endif  
+@endsection
+
+
+@section('allServices')
+  @if(!empty($id))
+
+    <div class="container col-sm-12">  
+      <br><br> 
+      <div class="col-sm-offset-2 col-sm-8">
+        <div class="tab-content">
+          <div id="allServices" class="tab-pane fade in active">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Duración</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Día</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                @foreach($servicesCustomer as $service)
+                      <tr>
+                        <th scope="row"></th>
+                        <td>{{$service->serviceName}}</td>
+                        <td>{{$service->serviceDuration}}</td>
+                        <td>{{$service->servicePrice}}</td>
+                        <td>{{$service->day}}</td>
+                      </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
   @endif  
 @endsection
