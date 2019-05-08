@@ -11,7 +11,7 @@ Route::get('/appoinment', function(){
     return view('appoinmentForm');
 })->name('appoinmentForm');
 
-Route::get('/customer/{id?}', 'PagesController@customerMain')->name('customer');
+Route::get('/customer/{id?}/{service?}', 'PagesController@customerMain')->name('customer');
 
 Route::get('/product', function(){
     // $product = Product::first();    
