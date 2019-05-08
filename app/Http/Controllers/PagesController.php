@@ -15,13 +15,14 @@ class PagesController extends Controller
     public function customerMain($id = null){
 
         $customerController = new CustomerController;
+        $servicesCustomer = null;
         if($id == null ){
             $customers = $customerController->getMainCustomers();     
         }else{
             $customers = $customerController->getCustomerDetails($id);
             $servicesCustomer = $customerController->getCustomerServiceColor($id);
         }
-        
         return view('customer', compact('customers','servicesCustomer','id'));
+        
     }
 }
