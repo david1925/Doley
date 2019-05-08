@@ -13,7 +13,7 @@
         <tbody>
           @foreach($customers as $customer)
             <tr>
-              <th scope="row"><a href="{{ route('customer', $customer->id ) }}">{{$customer->name}}
+              <th scope="row"><a href="{{ route('customer', [$customer->id,'color' ]) }}">{{$customer->name}}
               {{$customer->lastname}}</a></th>     
               <td>{{$customer->serviceName}}</td>   
               <td>{{$customer->day}}</td>
