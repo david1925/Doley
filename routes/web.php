@@ -23,3 +23,7 @@ Route::get('/exception', function(){
     $exception = Exception::first();    
     dd($exception);        
 });
+
+Route::get('/login', function(){
+    return view('login');       
+});
