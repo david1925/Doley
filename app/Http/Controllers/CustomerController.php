@@ -31,7 +31,9 @@ class CustomerController extends Controller
         ->where('appoinment.customer_id','=',$customerId)
         ->where('service.name','like','%color%')
         ->select('service.name AS serviceName','service.price AS servicePrice',
-                 'service.duration AS serviceDuration','appoinment.day AS day')
+                 'service.duration AS serviceDuration','appoinment.day AS day',
+                 'appoinment.id AS appoinmentId')
+        ->orderBy('appoinmentId','desc')
         ->get();
         return $customer;
     }
@@ -41,7 +43,9 @@ class CustomerController extends Controller
         ->join('appoinment','service.id','=','appoinment.service_id')
         ->where('appoinment.customer_id','=',$customerId)
         ->select('service.name AS serviceName','service.price AS servicePrice',
-                 'service.duration AS serviceDuration','appoinment.day AS day')
+                 'service.duration AS serviceDuration','appoinment.day AS day',
+                 'appoinment.id AS appoinmentId')
+        ->orderBy('appoinmentId','desc')
         ->get();
         return $customer;
     }

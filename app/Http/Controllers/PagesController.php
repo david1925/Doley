@@ -21,11 +21,11 @@ class PagesController extends Controller
         }else if($service == 'color') {
             $customers = $customerController->getCustomerDetails($id);
             $servicesCustomer = $customerController->getCustomerServiceColor($id);     
-        }else{          
+        }else if($service == 'all'){          
             $customers = $customerController->getCustomerDetails($id);
             $servicesCustomer = $customerController->getCustomerService($id);  
         }
-        return view('customer', compact('customers', 'servicesCustomer','id'));
+        return view('customer', compact('customers', 'servicesCustomer','service','id'));
         
     }
 }

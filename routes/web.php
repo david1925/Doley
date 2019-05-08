@@ -3,7 +3,7 @@ use Doley\Product;
 use Doley\Exception;
 use Doley\Appoinment;
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index')->name('main');
 
 Route::get('/appoinment', function(){
     // $appoinment = Appoinment::first();

@@ -121,10 +121,10 @@
         <div class="col-sm-offset-1 col-sm-10">
           <ul class="nav nav-tabs">
             <li class="active">
-              <a data-toggle="tab" href="{{ route('customer', $customers->id) }}">Ficha color</a>
+              <a href="{{ route('customer', [$customers->id,'color']) }}">Ficha color</a>
             </li>
             <li>
-              <a data-toggle="tab" href="#allServices">Ficha general</a>
+              <a href="{{ route('customer', [$customers->id,'all']) }}">Ficha general</a>
             </li>
           </ul>
         </div>
@@ -136,7 +136,7 @@
 
 
 @section('colorServices')
-  @if(!empty($id))
+  @if(!empty($id) && $service == 'color')
 
     <div class="container col-sm-12">  
       <br><br> 
@@ -157,7 +157,7 @@
               <tbody>
                 @foreach($servicesCustomer as $service)
                       <tr>
-                        <th scope="row"></th>
+                        <th scope="row">{{$service->appoinmentId}}</th>
                         <td>{{$service->serviceName}}</td>
                         <td>{{$service->serviceDuration}}</td>
                         <td>{{$service->servicePrice}}</td>
@@ -176,7 +176,7 @@
 
 
 @section('allServices')
-  @if(!empty($id))
+  @if(!empty($id) && $service == 'all')
 
     <div class="container col-sm-12">  
       <br><br> 
@@ -197,7 +197,7 @@
               <tbody>
                 @foreach($servicesCustomer as $service)
                       <tr>
-                        <th scope="row"></th>
+                        <th scope="row">{{$service->appoinmentId}}</th>
                         <td>{{$service->serviceName}}</td>
                         <td>{{$service->serviceDuration}}</td>
                         <td>{{$service->servicePrice}}</td>
