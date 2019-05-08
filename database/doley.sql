@@ -103,6 +103,7 @@ DROP TABLE IF EXISTS `doley`.`appoinment` ;
 CREATE TABLE IF NOT EXISTS `doley`.`appoinment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `day` DATE NOT NULL,
+  `time` TIME NULL,
   `pay_and_signal` TINYINT(1) NOT NULL DEFAULT 0,
   `absence` TINYINT(1) NOT NULL DEFAULT 0,
   `cancellation` TINYINT(1) NOT NULL DEFAULT 0,
