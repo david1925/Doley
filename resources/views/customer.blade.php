@@ -2,25 +2,32 @@
 @section('customer')
   @if(empty($id))
     <div class="container">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Cliente</th>
-            <th scope="col">Servicio</th>
-            <th scope="col">Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($customers as $customer)
+      <br><br>   
+      <div class="row">   
+        <div>
+          <button type="button" class="btn btn-primary">Añadir cliente</button>
+          <br><br>   
+        </div>
+        <table class="table table-striped">
+          <thead>
             <tr>
-              <th scope="row"><a href="{{ route('customer', [$customer->id,'color' ]) }}">{{$customer->name}}
-              {{$customer->lastname}}</a></th>     
-              <td>{{$customer->serviceName}}</td>   
-              <td>{{$customer->day}}</td>
-            </tr>   
-          @endforeach    
-        </tbody>
-      </table>    
+              <th scope="col">Cliente</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($customers as $customer)
+              <tr>
+                <th scope="row"><a href="{{ route('customer', [$customer->id,'color' ]) }}">{{$customer->name}}
+                {{$customer->lastname}}</a></th>     
+                <td>{{$customer->serviceName}}</td>   
+                <td>{{$customer->day}}</td>
+              </tr>   
+            @endforeach    
+          </tbody>
+        </table>     
+      </div>  
     </div>  
 @endif
 @endsection
@@ -29,104 +36,83 @@
 @section('customerDetail')
   @if(!empty($id))
 
-    <br><br>
     <div class="container col-sm-12">   
-      <form class="form-horizontal">  
-        <div class="row">      
-          <div class="col-sm-offset-1 col-sm-10">
-            <h4 class="h2">Datos cliente</h4>
-          </div>
+      <br><br>   
+      <div class="row">   
+        <div class="col-sm-offset-4 col-sm-4">
+          <h3 class="h3"><strong>Datos cliente</strong></h3>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th scope="row">Nombre</th>
+                <td>{{$customers->name}}</td>
+                <th>Derechos de imagen</th>
+                @if($customers->right_image)
+                  <td>Sí</td>
+                @else
+                  <td>No</td>
+                @endif
+              </tr>
+              <tr>
+                <th scope="row">Appellidos</th>
+                <td>{{$customers->lastname}}</td>
+                <th scope="row">Fecha de nacimiento</th>
+                <td>{{$customers->birthdate}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Teléfono</th>
+                <td>{{$customers->phone}}</td>
+                <th scope="row">Fecha de alta</th>
+                <td>{{$customers->created_at}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Email</th>
+                <td>{{$customers->email}}</td>
+                <th scope="row">Género</th>                  
+                @if($customers->right_image == 'M')
+                  <td>Mujer</td>
+                @else
+                  <td>Hombre</td>
+                @endif
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+                <th scope="row">Código postal</th>
+                <td>{{$customers->postal_code}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-        <br><br>
-        <div class="row">      
-          <div class="col-sm-offset-1 col-sm-5">
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="name">Nombre:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="name" value="{{$customers->name}}" disabled>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="lastname">Apellidos:</label>
-              <div class="col-sm-10">          
-                <input type="text" class="form-control" id="lastname" name="lastname" value="{{$customers->lastname}}" disabled>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="phone">Teléfono:</label>
-              <div class="col-sm-10">          
-                <input type="tel" class="form-control" id="phone" name="phone" value="{{$customers->phone}}" disabled>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="email">Email:</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" name="email" value="{{$customers->email}}" disabled>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="gender">Género:</label>
-              <div class="col-sm-10">          
-                <input type="text" class="form-control" id="gender" name="gender" value="{{$customers->gender}}" disabled> 
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="postalCode">Código postal:</label>
-              <div class="col-sm-10">          
-                <input type="number" class="form-control" id="postalCode" name="postalCode" min="1" max="99999" value="{{$customers->postal_code}}" disabled>
-              </div>
-            </div>
-          </div>
-
-          <div class="c col-sm-5">
-            <div class="form-group">
-              <label class="control-label col-sm-3" for="rightImage">Derechos de imagen:</label>
-              <div class="col-sm-9">          
-                <label>
-                  @if($customers->right_image)
-                  <input type="checkbox" name="rightImage" checked disabled> 
-                  @else
-                  <input type="checkbox" name="rightImage" disabled> 
-                  @endif
-                </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3" for="birthdate">Fecha de nacimiento:</label>
-              <div class="col-sm-9">          
-                <input type="text" class="form-control" id="birthdate" name="birthdate" value="{{$customers->birthdate}}" disabled>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3" for="observations">Obsevaciones:</label>
-              <div class="col-sm-9">          
-                <textarea class="form-control" rows="5" id="comment" name="comment" disabled> {{$customers->observations}} </textarea>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-3" for="creationDate">Fecha de alta:</label>
-              <div class="col-sm-9">          
-                <input type="text" class="form-control" id="creationDate" name="creationDate" value="{{$customers->created_at}}" disabled>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
 
-    <br><br><br>
     <div class="container col-sm-12">   
-      <div class="row">      
-        <div class="col-sm-offset-1 col-sm-10">
-          <ul class="nav nav-tabs">
-            <li class="active">
-              <a href="{{ route('customer', [$customers->id,'color']) }}">Ficha color</a>
-            </li>
-            <li>
-              <a href="{{ route('customer', [$customers->id,'all']) }}">Ficha general</a>
-            </li>
-          </ul>
+      <br>
+      <div class="row">   
+        <div class="col-sm-offset-4 col-sm-4">
+          <div class="form-group">
+            <label for="observations">Obsevaciones:</label>
+            <textarea readonly class="form-control" rows="3" id="observations">{{$customers->observations}}</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container col-sm-12">   
+      <br><br>   
+      <div class="row">    
+          <div class="col-sm-offset-4 col-sm-4">
+            <h3 class="h3"><strong>Historial</strong></h3>
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="{{ route('customer', [$customers->id,'color']) }}">Ficha color</a>
+              </li>
+              <li>
+                <a href="{{ route('customer', [$customers->id,'all']) }}">Ficha general</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -138,34 +124,36 @@
 @section('colorServices')
   @if(!empty($id) && $service == 'color')
 
-    <div class="container col-sm-12">  
-      <br><br> 
-      <div class="col-sm-offset-2 col-sm-8">
-        <div class="tab-content">
-          <div id="colorServices" class="tab-pane fade in active">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Duración</th>
-                  <th scope="col">Precio</th>
-                  <th scope="col">Día</th>
-                </tr>
-              </thead>
+    <div class="container col-sm-12">   
+      <br><br>   
+      <div class="row">    
+        <div class="col-sm-offset-4 col-sm-4">
+          <div class="tab-content">
+            <div id="colorServices" class="tab-pane fade in active">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Duración</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Día</th>
+                  </tr>
+                </thead>
 
-              <tbody>
-                @foreach($servicesCustomer as $service)
-                      <tr>
-                        <th scope="row">{{$service->appoinmentId}}</th>
-                        <td>{{$service->serviceName}}</td>
-                        <td>{{$service->serviceDuration}}</td>
-                        <td>{{$service->servicePrice}}</td>
-                        <td>{{$service->day}}</td>
-                      </tr>
-                @endforeach
-              </tbody>
-            </table>
+                <tbody>
+                  @foreach($servicesCustomer as $service)
+                        <tr>
+                          <th scope="row">{{$service->appoinmentId}}</th>
+                          <td>{{$service->serviceName}}</td>
+                          <td>{{$service->serviceDuration}}</td>
+                          <td>{{$service->servicePrice}}</td>
+                          <td>{{$service->day}}</td>
+                        </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -178,34 +166,36 @@
 @section('allServices')
   @if(!empty($id) && $service == 'all')
 
-    <div class="container col-sm-12">  
-      <br><br> 
-      <div class="col-sm-offset-2 col-sm-8">
-        <div class="tab-content">
-          <div id="allServices" class="tab-pane fade in active">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Duración</th>
-                  <th scope="col">Precio</th>
-                  <th scope="col">Día</th>
-                </tr>
-              </thead>
+    <div class="container col-sm-12">   
+      <br><br>   
+      <div class="row">    
+        <div class="col-sm-offset-4 col-sm-4">
+          <div class="tab-content">
+            <div id="allServices" class="tab-pane fade in active">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Duración</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Día</th>
+                  </tr>
+                </thead>
 
-              <tbody>
-                @foreach($servicesCustomer as $service)
-                      <tr>
-                        <th scope="row">{{$service->appoinmentId}}</th>
-                        <td>{{$service->serviceName}}</td>
-                        <td>{{$service->serviceDuration}}</td>
-                        <td>{{$service->servicePrice}}</td>
-                        <td>{{$service->day}}</td>
-                      </tr>
-                @endforeach
-              </tbody>
-            </table>
+                <tbody>
+                  @foreach($servicesCustomer as $service)
+                        <tr>
+                          <th scope="row">{{$service->appoinmentId}}</th>
+                          <td>{{$service->serviceName}}</td>
+                          <td>{{$service->serviceDuration}}</td>
+                          <td>{{$service->servicePrice}}</td>
+                          <td>{{$service->day}}</td>
+                        </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

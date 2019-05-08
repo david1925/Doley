@@ -4,7 +4,6 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    {{-- Pills --}}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/javascript" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" type="text/css"        href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -41,7 +40,9 @@
         </div>
       </div>
     </nav>
+    
     @yield('customer')
+    @yield('customerForm')
     @yield('customerDetail')
     @yield('allServices')
     @yield('colorServices')
