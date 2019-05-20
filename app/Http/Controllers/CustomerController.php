@@ -12,9 +12,16 @@ class CustomerController extends Controller
         $customers = DB::table('customer')       
         ->join('appoinment','customer.id','=','appoinment.customer_id')
         ->join('service','appoinment.service_id','=','service.id')        
-        ->select('customer.*','service.name AS serviceName','appoinment.day')
-        ->orderBy('appoinment.day','desc')
+        ->select('customer.*','service.name AS serviceName',DB::raw('MAX(appoinment.day) as day'))
+        ->groupBy('customer.id')
+        ->orderBy('appoinment.day','desc')        
         ->get();
+
+        /*$customers = DB::table($customers)
+        ->select('customer.*','name','day')
+        ->orderBy('day desc')
+        ->get();*/
+
         return $customers;
     }
 
