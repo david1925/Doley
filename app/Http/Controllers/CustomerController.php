@@ -57,4 +57,8 @@ class CustomerController extends Controller
         ->get();
         return $customer;
     }
+
+    public function addCustomer(){
+        
+    }
 }

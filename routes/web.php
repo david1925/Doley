@@ -6,18 +6,18 @@ use Doley\Appoinment;
 Route::get('/', 'PagesController@index')->name('main');
 
 Route::get('/appoinment', function(){
-    // $appoinment = Appoinment::first();
-    // dd($appoinment);
     return view('appoinmentForm');
 })->name('appoinmentForm');
 
 Route::get('/customer/{id?}/{service?}', 'PagesController@customerMain')->name('customer');
 
 Route::get('/product', function(){
-    // $product = Product::first();    
-    // dd($product);
     return view('productForm');      
 })->name('productForm');
+
+Route::get('/addCustomerView', 'PagesController@addCustomerView')->name('addCustomerView');
+
+Route::post('/addCustomer', 'PagesController@addCustomer')->name('addCustomer');
 
 Route::get('/exception', function(){
     $exception = Exception::first();    

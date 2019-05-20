@@ -5,7 +5,7 @@
       <br><br>   
       <div class="row">   
         <div>
-          <button type="button" class="btn btn-primary">Añadir cliente</button>
+          <button type="button" class="btn btn-primary"><a href="{{ route('addCustomerView') }}">Añadir cliente</a></button>
           <br><br>   
         </div>
         <table class="table table-striped">

@@ -25,7 +25,21 @@ class PagesController extends Controller
             $customers = $customerController->getCustomerDetails($id);
             $servicesCustomer = $customerController->getCustomerService($id);  
         }
-        return view('customer', compact('customers', 'servicesCustomer','service','id'));
-        
+        return view('customer', compact('customers', 'servicesCustomer','service','id'));        
+    }
+
+    public function addCustomerView(){
+        return view('customerForm');
+    }
+
+    public function addCustomer(Request $request){
+
+        //print_r($request->input());
+        Customer::create([
+            'name' => request()->name,
+            'lastname' => request()->lastname,
+            'phone' => request()->phone,
+            'discharge_date' => '2019/03/05'            
+        ]);
     }
 }
