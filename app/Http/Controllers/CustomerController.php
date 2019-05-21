@@ -58,7 +58,18 @@ class CustomerController extends Controller
         return $customer;
     }
 
-    public function addCustomer(){
-        
+    public function addCustomer($request){
+        Customer::create([
+            'name' => request()->name,
+            'lastname' => request()->lastname,
+            'phone' => request()->phone,
+            'discharge_date' => request()->discharge_date,    
+            'email' => request()->email,
+            'gender' => request()->gender,
+            'postal_code' => request()->postal_code,
+            'right_image' => request()->right_image,
+            'birthdate' => request()->birthdate,
+            'observations' => request()->observations
+        ]);
     }
 }

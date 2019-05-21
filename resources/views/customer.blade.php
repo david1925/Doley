@@ -106,12 +106,10 @@
             <h3 class="h3"><strong>Historial</strong></h3>
             <ul class="nav nav-tabs">
               <li class="active">
-                <!-- <a href="{{ route('customer', [$customers->id,'color']) }}">Ficha color</a> -->
-                <a  href="{{ route('customer', [$customers->id,'color']) }}" data-toggle="tab">Ficha color</a>
+                <a href="{{ route('customer', [$customers->id,'color']) }}">Ficha color</a>
               </li>
               <li>
-                <!-- <a href="{{ route('customer', [$customers->id,'all']) }}">Ficha general</a> -->
-                <a  href="{{ route('customer', [$customers->id,'all']) }}" data-toggle="tab">Ficha general</a>
+                <a href="{{ route('customer', [$customers->id,'all']) }}">Ficha general</a>                
               </li>
             </ul>
           </div>

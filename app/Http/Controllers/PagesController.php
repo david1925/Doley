@@ -33,13 +33,7 @@ class PagesController extends Controller
     }
 
     public function addCustomer(Request $request){
-
-        //print_r($request->input());
-        Customer::create([
-            'name' => request()->name,
-            'lastname' => request()->lastname,
-            'phone' => request()->phone,
-            'discharge_date' => '2019/03/05'            
-        ]);
+        $customerController = new CustomerController;
+        $customerController->addCustomer($request);
     }
 }

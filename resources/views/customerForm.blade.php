@@ -43,19 +43,19 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-2" for="postalCode">Código postal:</label>
+              <label class="control-label col-sm-2" for="postal_code">Código postal:</label>
               <div class="col-sm-10">          
-                <input type="number" class="form-control" id="postalCode" name="postalCode" min="1" max="99999">
+                <input type="number" class="form-control" id="postal_code" name="postal_code" min="1" max="99999">
               </div>
             </div>
           </div>
 
           <div class="c col-sm-5">
             <div class="form-group">
-              <label class="control-label col-sm-3" for="rightImage">Derechos de imagen:</label>
+              <label class="control-label col-sm-3" for="right_Image">Derechos de imagen:</label>
               <div class="col-sm-9">          
                 <label>                  
-                  <input type="checkbox" name="rightImage">                  
+                  <input type="checkbox" name="right_image">                  
                 </label>
               </div>
             </div>
@@ -68,13 +68,13 @@
             <div class="form-group">
               <label class="control-label col-sm-3" for="observations">Obsevaciones:</label>
               <div class="col-sm-9">          
-                <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                <textarea class="form-control" rows="5" id="observations" name="observations"></textarea>
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-3" for="creationDate">Fecha de alta:</label>
+              <label class="control-label col-sm-3" for="discharge_date">Fecha de alta:</label>
               <div class="col-sm-9">          
-                <input type="text" class="form-control" id="creationDate" name="creationDate">
+                <input type="date" class="form-control" id="discharge_date" name="discharge_date">
               </div>
               <br/><br/><br/>
               <div class="form-group">              
