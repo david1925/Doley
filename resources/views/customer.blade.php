@@ -83,6 +83,7 @@
               </tr>
             </tbody>
           </table>
+          <a href="{{ route('editCustomerView', [$customers->id ]) }}"><span class="glyphicon glyphicon-edit"></span></a>
         </div>
       </div>
     </div>

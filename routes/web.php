@@ -19,6 +19,10 @@ Route::get('/addCustomerView', 'PagesController@addCustomerView')->name('addCust
 
 Route::post('/addCustomer', 'PagesController@addCustomer')->name('addCustomer');
 
+Route::get('/editCustomerView/{id}', 'PagesController@editCustomerView')->name('editCustomerView');
+
+Route::post('/editCustomer/{id}', 'PagesController@editCustomer')->name('editCustomer');
+
 Route::get('/exception', function(){
     $exception = Exception::first();    
     dd($exception);        

@@ -71,4 +71,19 @@ class CustomerController extends Controller
             'observations' => request()->observations
         ]);
     }
+
+    public function editCustomer($request,$id){
+        $customer = Customer::find($id);
+        $customer->name = request()->name;
+        $customer->lastname = request()->lastname;
+        $customer->phone = request()->phone;
+        $customer->discharge_date = request()->discharge_date;
+        $customer->email = request()->email;
+        $customer->gender = request()->gender;
+        $customer->postal_code = request()->postal_code;
+        $customer->right_image = request()->right_image;
+        $customer->birthdate = request()->birthdate;
+        $customer->observations = request()->observations;
+        $customer->save();
+    }
 }

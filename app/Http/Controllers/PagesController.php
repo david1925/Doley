@@ -36,4 +36,15 @@ class PagesController extends Controller
         $customerController = new CustomerController;
         $customerController->addCustomer($request);
     }
+
+    public function editCustomerView($id){
+        $customerController = new CustomerController;
+        $customer = $customerController->getCustomerDetails($id);        
+        return view('customerForm',compact('id','customer'));
+    }
+
+    public function editCustomer(Request $request,$id){
+        $customerController = new CustomerController;
+        $customerController->editCustomer($request,$id);
+    }
 }
