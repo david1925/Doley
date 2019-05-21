@@ -7,10 +7,11 @@ use Doley\Exception;
 
 class ExceptionController extends Controller
 {
-    public function insertTrace($exception,$class,$method){
-        $exceptionObj = new Exception;
-        $exceptionObj->exception = $exception;
-        $exceptionObj->class = $class;
-        $exceptionObj->method = $method; 
+    public function createTrace($exception,$class,$method){
+        Exception::create([
+            'exception' => $exception,
+            'class' => $class,
+            'method' => $method            
+        ]);
     }
 }

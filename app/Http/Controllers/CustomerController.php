@@ -4,17 +4,23 @@ namespace Doley\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Doley\Customer;
+use Mockery\Exception;
 
 class CustomerController extends Controller
 {
     public function getMainCustomers(){
-        $customers = DB::table('customer')       
-        ->join('appoinment','customer.id','=','appoinment.customer_id')
-        ->join('service','appoinment.service_id','=','service.id')        
-        ->select('customer.*','service.name AS serviceName',DB::raw('MAX(appoinment.day) as day'))
-        ->groupBy('customer.id')
-        ->orderBy('appoinment.day','desc')        
-        ->get();
+        try{
+            $customers = DB::table('customer')     
+            ->join('appoinment','customer.id','=','appoinment.customer_id')
+            ->join('service','appoinment.service_id','=','service.id')        
+            ->select('customer.*','service.name AS serviceName',DB::raw('MAX(appoinment.day) as day'))
+            ->groupBy('customer.id')
+            ->orderBy('appoinment.day','desc')        
+            ->get();            
+        }catch(Exception $e){
+            $exceptionController = new ExceptionController;
+            $exceptionController->createTrace($e->getMessage(),get_class($this),__FUNCTION__);
+        }        
         return $customers;
     }
 
