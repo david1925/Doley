@@ -1,7 +1,6 @@
 <?php
 
 namespace Doley\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Doley\Customer;
@@ -16,12 +15,6 @@ class CustomerController extends Controller
         ->groupBy('customer.id')
         ->orderBy('appoinment.day','desc')        
         ->get();
-
-        /*$customers = DB::table($customers)
-        ->select('customer.*','name','day')
-        ->orderBy('day desc')
-        ->get();*/
-
         return $customers;
     }
 
