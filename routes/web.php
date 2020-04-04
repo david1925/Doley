@@ -3,7 +3,7 @@ use Doley\Product;
 use Doley\Exception;
 use Doley\Appoinment;
 
-Route::get('/', 'PagesController@index')->name('main');
+Route::get('/', 'PagesController@index')->name('calendar');
 
 Route::get('/appoinment', function(){
     return view('appoinmentForm');
@@ -22,6 +22,8 @@ Route::post('/addCustomer', 'PagesController@addCustomer')->name('addCustomer');
 Route::get('/editCustomerView/{id}', 'PagesController@editCustomerView')->name('editCustomerView');
 
 Route::post('/editCustomer/{id}', 'PagesController@editCustomer')->name('editCustomer');
+
+Route::get('/addServiceToCustomerView/{id}', 'PagesController@addServiceToCustomerView')->name('addServiceToCustomerView');
 
 Route::get('/exception', function(){
     $exception = Exception::first();    

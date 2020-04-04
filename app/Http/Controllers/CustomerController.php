@@ -85,5 +85,32 @@ class CustomerController extends Controller
         $customer->birthdate = request()->birthdate;
         $customer->observations = request()->observations;
         $customer->save();
+    }    
+
+    public function getCustomers(){
+        try{
+            $customers = DB::table('customer')
+            ->select('customer.name','customer.lastname')            
+            ->orderBy('customer.lastname','asc')
+            ->get(); 
+        }catch(Exception $e){
+            $exceptionController = new ExceptionController;
+            $exceptionController->createTrace($e->getMessage(),get_class($this),__FUNCTION__);
+        }
     }
+
+    public function getCustomerById($customerId){
+        try{
+            $customers = DB::table('customer')
+            ->select('customer.*')
+            ->where('customer.customer_id','=',$customerId)
+            ->get();
+        }catch(Exception $e){
+        }
+    }
+
+    /*public function addServiceToCustomer($request, $id){
+        $customer = Customer::find($id);
+        var_dump($customer);
+    }*/
 }

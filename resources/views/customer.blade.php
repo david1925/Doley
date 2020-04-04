@@ -8,6 +8,10 @@
           <button type="button" class="btn btn-primary"><a href="{{ route('addCustomerView') }}">Añadir cliente</a></button>
           <br><br>   
         </div>
+        <br><br>
+        <div>
+          <input type="text" name="search" id="search"/>
+        </div>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -84,6 +88,7 @@
             </tbody>
           </table>
           <a href="{{ route('editCustomerView', [$customers->id ]) }}"><span class="glyphicon glyphicon-edit"></span></a>
+          <a href="{{ route('addServiceToCustomerView', [$customers->id ]) }}"><span class="glyphicon glyphicon-plus"></span></a>
         </div>
       </div>
     </div>

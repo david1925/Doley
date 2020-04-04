@@ -9,7 +9,7 @@ use Doley\Customer;
 class PagesController extends Controller
 {
     public function index(){
-        return view('main');
+        return view('calendar');
     }
 
     public function customerMain($id = null, $service = null){
@@ -32,6 +32,10 @@ class PagesController extends Controller
         return view('customerForm');
     }
 
+    /*public function addServiceToCustomerView($id){
+        return view('addServiceToCustomerForm');
+    }*/
+
     public function addCustomer(Request $request){
         $customerController = new CustomerController;
         $customerController->addCustomer($request);
@@ -46,5 +50,10 @@ class PagesController extends Controller
     public function editCustomer(Request $request,$id){
         $customerController = new CustomerController;
         $customerController->editCustomer($request,$id);
+    }
+
+    public function addServiceToCustomerView(Request $request, $id){
+        $customerController = new CustomerController;
+        $customerController->addServiceToCustomer($request,$id);
     }
 }

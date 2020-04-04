@@ -47,8 +47,7 @@
     @yield('allServices')
     @yield('colorServices')
     @yield('appoinmentForm')
-    @yield('productForm')
-
+    @yield('productForm')  
   </body>
 
 </html>
